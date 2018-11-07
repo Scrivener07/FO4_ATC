@@ -1,4 +1,4 @@
-# Annex the Commonwealth, contributions for `v0.4.0`
+# Annex the Commonwealth, contributions for `v0.4.0.07.11.2018`
 Build and expand empires across the land like never before!
 
 [Public Release](https://www.nexusmods.com/fallout4/mods/32170)
