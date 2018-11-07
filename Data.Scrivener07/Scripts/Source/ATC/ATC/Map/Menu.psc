@@ -14,13 +14,23 @@ Event OnGameReload()
 	If (!IsRegistered)
 		UI:MenuData data = new UI:MenuData
 		data.MenuFlags = FlagDoNotPreventGameSave
-		data.ExtendedFlags = FlagInheritColors
+		data.ExtendedFlags = FlagNone
 		If (UI.RegisterCustomMenu(Name, Path, Root, data))
 			WriteLine(ToString(), "OnGameReload", "Registered as a custom menu.")
 		Else
 			WriteUnexpected(ToString(), "OnGameReload", "Failed to register as a custom menu.")
 		EndIf
 	EndIf
+
+	RegisterForKey(P) ; DebugOnly
+EndEvent
+
+
+Event OnKeyDown(int aiKeyCode) ; DebugOnly
+	If (UI.IsMenuOpen("Console"))
+		return
+	EndIf
+	ToggleMenu()
 EndEvent
 
 
@@ -52,6 +62,23 @@ bool Function Close()
 		Else
 			WriteUnexpectedValue(ToString(), "Close", "IsRegistered", "This menu is not registered.")
 			return false
+		EndIf
+	EndIf
+EndFunction
+
+
+bool Function ToggleMenu()
+	If (IsOpen)
+		If(Close())
+			WriteLine(ToString(), "ToggleMenu", "Closed.")
+		Else
+			WriteUnexpected(ToString(), "ToggleMenu", "Could not close!")
+		EndIf
+	Else
+		If(Open())
+			WriteLine(ToString(), "ToggleMenu", "Opened.")
+		Else
+			WriteUnexpected(ToString(), "ToggleMenu", "Could not open!")
 		EndIf
 	EndIf
 EndFunction
@@ -111,6 +138,6 @@ Group MenuFlags
 	int Property FlagDoNotPreventGameSave = 0x800 AutoReadOnly
 EndGroup
 
-Group ExtendedFlags
-	int Property FlagInheritColors = 1 AutoReadOnly
+Group Keyboard
+	int Property P = 80 AutoReadOnly
 EndGroup
