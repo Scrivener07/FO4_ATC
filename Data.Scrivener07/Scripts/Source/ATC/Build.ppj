@@ -12,6 +12,7 @@
 	>
 	<Imports>
 		<Import>.</Import>
+		<Import>..\ATC_</Import>
 		<Import>..\F4SE</Import>
 		<Import>..\Base</Import>
 	</Imports>

@@ -1,12 +1,8 @@
 Scriptname ATC:Map:Data extends ATC:Type
 import ATC:Log
+import ESM:Maths
 
-Point[] Points
-
-Struct Point
-	float X = 0.0
-	float Y = 0.0
-EndStruct
+Vector2f[] Points
 
 
 ; Events
@@ -20,29 +16,29 @@ EndEvent
 
 Event OnGameReload()
 	RegisterForMenuOpenCloseEvent(MapMenu.Name)
-	Points = new Point[0]
+	Points = new Vector2f[0]
 
-	Point valueA = new Point
+	Vector2f valueA = new Vector2f
 	valueA.X = 100.0
 	valueA.Y = 100.0
 	Points.Add(valueA)
 
-	Point valueB = new Point
+	Vector2f valueB = new Vector2f
 	valueB.X = 200.0
 	valueB.Y = 100.0
 	Points.Add(valueB)
 
-	Point valueC = new Point
+	Vector2f valueC = new Vector2f
 	valueC.X = 200.0
 	valueC.Y = 200.0
 	Points.Add(valueC)
 
-	Point valueD = new Point
+	Vector2f valueD = new Vector2f
 	valueD.X = 100.0
 	valueD.Y = 200.0
 	Points.Add(valueD)
 
-	Point valueE = new Point
+	Vector2f valueE = new Vector2f
 	valueE.X = 100.0
 	valueE.Y = 100.0
 	Points.Add(valueE)
