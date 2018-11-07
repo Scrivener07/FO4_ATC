@@ -1,4 +1,4 @@
-Scriptname ATC:MapMenu extends ATC:Type
+Scriptname ATC:Map:Menu extends ATC:Type
 import ATC:Log
 
 ; Events
